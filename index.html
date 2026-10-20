@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentia The Global School | Miyapur, Hyderabad (CBSE)</title>
+  
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sentia: {
+              navy: '#0b2545',
+              deep: '#06172e',
+              crimson: '#b91c1c',
+              ruby: '#991b1b',
+              gold: '#d97706'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-sentia-crimson selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-sentia-deep text-slate-200 text-xs py-2 px-4 border-b border-sentia-navy">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span><strong class="text-amber-400">CBSE Affiliation:</strong> 3630065 | Code: 57588</span>
+        <span class="hidden md:inline text-slate-400">|</span>
+        <span class="hidden md:inline">Beside B.K. Enclave, Miyapur, Hyderabad</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:9985388821" class="hover:text-amber-300">📞 99853 88821 / 99852 88821</a>
+        <button onclick="openModal('portalModal')" class="bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-slate-900 px-2 py-0.5 rounded transition">MyClassboard Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-sentia-navy flex items-center justify-center text-white font-serif font-black text-xl shadow">
+          S
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-serif font-extrabold text-2xl text-sentia-navy">SENTIA</span>
+            <span class="text-[10px] bg-red-100 text-sentia-crimson font-bold uppercase px-1.5 py-0.5 rounded">The Global School</span>
+          </div>
+          <p class="text-[10px] text-slate-500">Vidya Kshetra Educational Society • Estd. 2008</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a href="#about" class="hover:text-sentia-crimson">About Us</a>
+        <a href="#academics" class="hover:text-sentia-crimson">Academics</a>
+        <a href="#facilities" class="hover:text-sentia-crimson">Facilities</a>
+        <a href="#noticeboard" class="hover:text-sentia-crimson">Notice Board</a>
+        <a href="#admissions" class="hover:text-sentia-crimson">Admissions</a>
+        <a href="#contact" class="hover:text-sentia-crimson">Contact</a>
+        <button onclick="openModal('disclosureModal')" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-slate-700">CBSE Disclosure</button>
+        <a href="#admissions" class="bg-sentia-crimson hover:bg-sentia-ruby text-white px-4 py-2 rounded-lg text-xs uppercase tracking-wide">Enquire Now</a>
+      </nav>
+
+      <!-- Mobile Toggle -->
+      <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-slate-700">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-2 text-sm font-semibold">
+      <a href="#about" onclick="toggleMobileNav()" class="block py-1 text-slate-700">About Us</a>
+      <a href="#academics" onclick="toggleMobileNav()" class="block py-1 text-slate-700">Academics</a>
+      <a href="#facilities" onclick="toggleMobileNav()" class="block py-1 text-slate-700">Facilities</a>
+      <a href="#noticeboard" onclick="toggleMobileNav()" class="block py-1 text-slate-700">Notice Board</a>
+      <a href="#admissions" onclick="toggleMobileNav()" class="block py-1 text-slate-700">Admissions</a>
+      <a href="#contact" onclick="toggleMobileNav()" class="block py-1 text-slate-700">Contact</a>
+      <button onclick="openModal('disclosureModal'); toggleMobileNav()" class="block w-full text-left py-1 text-sentia-crimson">Mandatory Public Disclosure</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative bg-gradient-to-b from-slate-900 via-sentia-navy to-sentia-deep text-white py-16 lg:py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <span class="inline-block px-3 py-1 bg-white/10 text-amber-300 text-xs font-bold rounded-full uppercase tracking-wider">
+          CBSE Senior Secondary Co-Ed • Miyapur
+        </span>
+        <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+          A School Where Learning Is <span class="text-amber-400 italic">Fun All Along</span>
+        </h1>
+        <div class="pl-4 border-l-2 border-sentia-crimson italic text-slate-300 text-sm font-serif space-y-1">
+          <p>"Where the young minds are woken up to the way of the world around,"</p>
+          <p>"Where the fledgling wings are fortified to soar higher and higher up the ground."</p>
+        </div>
+        <p class="text-slate-300 text-sm max-w-xl leading-relaxed">
+          Managed by Vidya Kshetra Educational Society, Sentia provides a safe, 3-acre campus blending Indian ethos with modern experiential learning from Balvatika through Class XII.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#admissions" class="bg-sentia-crimson hover:bg-sentia-ruby text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-xl shadow-md transition">
+            Admissions Open 2026–27
+          </a>
+          <a href="#facilities" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-6 py-3 rounded-xl border border-white/20 transition">
+            Explore 3-Acre Campus
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="lg:col-span-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-white space-y-4">
+        <h3 class="font-serif font-bold text-lg text-amber-300">Sentia at a Glance</h3>
+        <div class="grid grid-cols-2 gap-3 text-center">
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <span class="block text-2xl font-bold text-amber-400">100%</span>
+            <span class="text-xs text-slate-300">AISSE / AISSCE Pass</span>
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <span class="block text-2xl font-bold text-amber-400">2300+</span>
+            <span class="text-xs text-slate-300">Active Students</span>
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <span class="block text-2xl font-bold text-amber-400">30:1</span>
+            <span class="text-xs text-slate-300">Student-Teacher Ratio</span>
+          </div>
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <span class="block text-2xl font-bold text-amber-400">3 Acres</span>
+            <span class="text-xs text-slate-300">Green Campus</span>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-300 text-center">Recognized by CBSE, New Delhi (Affiliation No: 3630065)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TICKER -->
+  <div class="bg-amber-500 text-sentia-deep text-xs font-bold py-2 px-4 shadow-sm flex items-center gap-3">
+    <span class="bg-sentia-navy text-white px-2 py-0.5 rounded text-[10px] uppercase">Notice</span>
+    <marquee class="w-full">
+      Admissions open for Balvatika to Class XI for academic sessions 2026–27 • Bus routes updated for Miyapur, Kukatpally, Nizampet & Bachupally • Congratulations to our students for IIT Bombay Robotics round selection!
+    </marquee>
+  </div>
+
+  <!-- ABOUT & LEADERSHIP -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-sentia-crimson uppercase tracking-widest">Heritage & Ethos</span>
+        <h2 class="font-serif text-3xl font-bold text-sentia-navy mt-1">Nurturing Human Excellence Since 2008</h2>
+        <div class="w-12 h-1 bg-sentia-crimson mx-auto my-3 rounded"></div>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Sentia The Global School is managed by <strong>Vidya Kshetra Educational Society</strong>. We focus on intellectual vigor, physical stamina, and moral character.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Chairman Desk -->
+        <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-sentia-navy text-amber-400 flex items-center justify-center font-bold">AD</div>
+            <div>
+              <h3 class="font-serif font-bold text-base text-sentia-navy">Mr. A. Deepak</h3>
+              <p class="text-xs text-sentia-crimson font-medium">Founder & Chairman</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-sentia-crimson pl-3">
+            "We give them… A perfect platform. A school that emanates a happy atmosphere which is reflected in the exuberance of its students comes about if they are dealt with care, concern, and love by their teachers."
+          </p>
+        </div>
+
+        <!-- Academic Head Desk -->
+        <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-sentia-crimson text-white flex items-center justify-center font-bold">AS</div>
+            <div>
+              <h3 class="font-serif font-bold text-base text-sentia-navy">Mrs. A. Sunita</h3>
+              <p class="text-xs text-sentia-crimson font-medium">Academic Head & Principal (M.Sc, M.Phil Edu)</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic border-l-2 border-amber-500 pl-3">
+            "At Sentia, education extends beyond memorization to active inquiry. Through experiential learning like iDISCOVERi and modern science laboratories, our students cultivate critical inquiry and ethical confidence."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMICS (Interactive Tabs) -->
+  <section id="academics" class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-sentia-navy uppercase tracking-widest">Academic Wings</span>
+        <h2 class="font-serif text-3xl font-bold text-sentia-navy mt-1">Holistic CBSE Curriculum</h2>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button onclick="showTab('early')" id="btn-early" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-sentia-navy text-white">Balvatika / Pre-Primary</button>
+        <button onclick="showTab('primary')" id="btn-primary" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200">Primary (Grades I-V)</button>
+        <button onclick="showTab('middle')" id="btn-middle" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200">Middle (Grades VI-VIII)</button>
+        <button onclick="showTab('senior')" id="btn-senior" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200">Senior (Grades IX-XII)</button>
+      </div>
+
+      <!-- Panels -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-4xl mx-auto">
+        <div id="content-early" class="tab-content space-y-3">
+          <span class="text-xs font-bold text-amber-600 uppercase">Pre-Primary Stage</span>
+          <h3 class="font-serif font-bold text-xl text-sentia-navy">iDISCOVERi Experiential Curriculum</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            In partnership with <strong>iDISCOVERi</strong>, our foundational wing emphasizes phonetic discovery, multi-sensory math toys, storytelling circle time, and safe outdoor gross-motor play.
+          </p>
+        </div>
+
+        <div id="content-primary" class="tab-content hidden space-y-3">
+          <span class="text-xs font-bold text-sentia-crimson uppercase">Foundational Stage</span>
+          <h3 class="font-serif font-bold text-xl text-sentia-navy">Primary School (Grades I - V)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Focuses on foundational numeracy, environmental awareness, and CBSE Art-Integrated Projects. Students build conceptual clarity through experiential Math Lab experiments.
+          </p>
+        </div>
+
+        <div id="content-middle" class="tab-content hidden space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase">Middle Stage</span>
+          <h3 class="font-serif font-bold text-xl text-sentia-navy">Middle School (Grades VI - VIII)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Analytical thinking, Python AI/Robotics workshops (partnered with Tech Radiance / IIT Bombay competitions), Science Olympiads, and debate forums.
+          </p>
+        </div>
+
+        <div id="content-senior" class="tab-content hidden space-y-3">
+          <span class="text-xs font-bold text-sentia-navy uppercase">Secondary & Senior Secondary</span>
+          <h3 class="font-serif font-bold text-xl text-sentia-navy">Senior Secondary (Grades IX - XII)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Science (MPC, BiPC) and Commerce streams affiliated with CBSE. Rigorous practical lab work and personalized career guidance producing consistent 100% board exam passes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section id="facilities" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">3-Acre Infrastructure</span>
+        <h2 class="font-serif text-3xl font-bold text-sentia-navy mt-1">World-Class Campus Facilities</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold mb-3">⚽</div>
+          <h3 class="font-serif font-bold text-base text-sentia-navy mb-1">Sports & EduSports</h3>
+          <p class="text-xs text-slate-600">Cricket practice nets, football ground, basketball court, athletics, and indoor chess/table tennis arenas.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold mb-3">🔬</div>
+          <h3 class="font-serif font-bold text-base text-sentia-navy mb-1">Science & Tech Labs</h3>
+          <p class="text-xs text-slate-600">Dedicated Physics, Chemistry, Biology, Mathematics, and Computer labs meeting stringent CBSE norms.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-3">🚌</div>
+          <h3 class="font-serif font-bold text-base text-sentia-navy mb-1">Safe School Transport</h3>
+          <p class="text-xs text-slate-600">GPS-monitored bus fleet with lady attenders covering Miyapur, Kukatpally, Nizampet, Bachupally, and Kondapur.</p>
+          <button onclick="openModal('transportModal')" class="text-xs font-bold text-sentia-crimson mt-2 hover:underline">View Bus Routes →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICE BOARD & SEARCH -->
+  <section id="noticeboard" class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-bold text-sentia-crimson uppercase">School Communications</span>
+          <h2 class="font-serif text-2xl font-bold text-sentia-navy">Notice Board & Circulars</h2>
+        </div>
+        <input id="noticeSearch" onkeyup="filterNotices()" type="text" placeholder="Search notices (e.g. CBA, Art)..." class="text-xs px-3.5 py-2 rounded-xl border border-slate-300 w-full sm:w-64 bg-white focus:outline-none focus:ring-2 focus:ring-sentia-crimson">
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-100 overflow-hidden shadow-sm">
+        <div class="notice-item p-4 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="text-xs sm:text-sm font-bold text-slate-900 notice-title">CBA 1 & CBA 2 Portion Sheets 2026–27 (Class I - XI)</h4>
+            <p class="text-[11px] text-slate-500">Official syllabi breakdown for Competency Based Assessments.</p>
+          </div>
+          <button onclick="alert('Downloading: CBA_Portion_Sheet_2026.pdf')" class="text-xs bg-slate-100 hover:bg-sentia-crimson hover:text-white px-3 py-1.5 rounded-lg font-bold shrink-0 transition">PDF</button>
+        </div>
+
+        <div class="notice-item p-4 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="text-xs sm:text-sm font-bold text-slate-900 notice-title">Term II CBSE Art-Integration Projects (Classes 6 to 10)</h4>
+            <p class="text-[11px] text-slate-500">Mandatory paired-state collaborative project guidelines.</p>
+          </div>
+          <button onclick="alert('Downloading: Art_Integration_Projects.pdf')" class="text-xs bg-slate-100 hover:bg-sentia-crimson hover:text-white px-3 py-1.5 rounded-lg font-bold shrink-0 transition">PDF</button>
+        </div>
+
+        <div class="notice-item p-4 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="text-xs sm:text-sm font-bold text-slate-900 notice-title">School Transport Route Sheet & Bus Stops List 2026</h4>
+            <p class="text-[11px] text-slate-500">Pick-up and drop-off points for all feeder zones.</p>
+          </div>
+          <button onclick="openModal('transportModal')" class="text-xs bg-slate-100 hover:bg-sentia-crimson hover:text-white px-3 py-1.5 rounded-lg font-bold shrink-0 transition">View</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS & FORM -->
+  <section id="admissions" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-sentia-crimson uppercase tracking-widest">Enrollment 2026–27</span>
+        <h2 class="font-serif text-3xl font-bold text-sentia-navy mt-1">Admission Registration & Eligibility</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+        <!-- Age Checker -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-sentia-navy to-sentia-deep text-white p-6 rounded-2xl shadow space-y-4">
+          <h3 class="font-serif font-bold text-lg text-amber-300">Age Eligibility Checker</h3>
+          <p class="text-xs text-slate-300">Select child's Date of Birth to check recommended grade as of May 31st:</p>
+          <input type="date" id="dobInput" class="w-full text-xs p-2.5 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none">
+          <button onclick="checkAge()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-2.5 rounded-lg transition">Check Recommended Class</button>
+          <div id="ageOutput" class="hidden text-xs p-3 bg-white/15 rounded-lg border border-white/20 text-amber-300 font-semibold"></div>
+        </div>
+
+        <!-- Enquiry Form -->
+        <div class="lg:col-span-7 bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+          <h3 class="font-serif font-bold text-lg text-sentia-navy mb-4">Online Admission Enquiry</h3>
+          <form id="enquiryForm" onsubmit="submitForm(event)" class="space-y-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Student's Full Name *</label>
+              <input type="text" id="stuName" required placeholder="Student name" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Applying Grade *</label>
+                <select id="stuGrade" required class="w-full text-xs p-2.5 border border-slate-300 rounded-lg bg-white">
+                  <option value="">Select Grade</option>
+                  <option value="Balvatika">Balvatika / Nursery</option>
+                  <option value="Primary">Class 1 to 5</option>
+                  <option value="Middle">Class 6 to 8</option>
+                  <option value="Senior">Class 9 to 11</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Parent Mobile Number *</label>
+                <input type="tel" id="stuPhone" required placeholder="10-digit phone" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Parent Email *</label>
+              <input type="email" id="stuEmail" required placeholder="email@domain.com" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg">
+            </div>
+            <button type="submit" class="w-full bg-sentia-crimson hover:bg-sentia-ruby text-white font-bold text-xs uppercase py-3 rounded-lg shadow transition">
+              Submit Enquiry
+            </button>
+          </form>
+          <div id="formSuccess" class="hidden p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs rounded-lg text-center mt-3">
+            ✓ Registration successful! Your reference token is <strong id="token"></strong>. Our team will contact you.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-serif font-bold text-lg text-amber-400 mb-2">Sentia The Global School</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Beside B.K. Enclave, Road No. 2, Near Miyapur Bus Depot, Miyapur, Hyderabad, Telangana – 500049.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-serif font-bold text-lg text-amber-400 mb-2">Admissions & Office</h3>
+        <p class="text-xs text-slate-300 space-y-1">
+          <span>📞 Phone: 99853 88821 / 99852 88821</span><br>
+          <span>✉️ Email: admissions@sentia.in / info@sentia.in</span><br>
+          <span>🕒 Timings: Mon–Sat, 8:30 AM to 4:00 PM</span>
+        </p>
+      </div>
+      <div>
+        <h3 class="font-serif font-bold text-lg text-amber-400 mb-2">CBSE Credentials</h3>
+        <p class="text-xs text-slate-300">
+          Affiliation No: 3630065<br>
+          School Code: 57588<br>
+          Managed by Vidya Kshetra Educational Society
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-sentia-deep text-slate-400 text-xs py-6 border-t border-slate-800 text-center px-4">
+    <p>© 2008–2026 Sentia The Global School (Original base: <a href="https://www.sentia.in/" class="text-slate-300 underline" target="_blank">sentia.in</a>).</p>
+    <p class="text-[11px] text-slate-500 mt-1">Independent educational website modernization demo.</p>
+  </footer>
+
+  <!-- MODAL: CBSE PUBLIC DISCLOSURE -->
+  <div id="disclosureModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 text-xs text-slate-800 space-y-2">
+      <div class="flex justify-between items-center border-b pb-2 mb-3">
+        <h3 class="font-bold text-sm text-sentia-navy">Mandatory Public Disclosure (CBSE Appendix-IX)</h3>
+        <button onclick="closeModal('disclosureModal')" class="text-slate-400 hover:text-black">✕</button>
+      </div>
+      <p><strong>School Name:</strong> SENTIA THE GLOBAL SCHOOL</p>
+      <p><strong>Affiliation No.:</strong> 3630065 | <strong>School Code:</strong> 57588</p>
+      <p><strong>Principal:</strong> Mrs. A. Sunita (M.Sc, M.Phil Edu)</p>
+      <p><strong>Society:</strong> Vidya Kshetra Educational Society</p>
+      <p><strong>Address:</strong> Beside B.K. Enclave, Road No. 2, Miyapur, Hyderabad - 500049</p>
+      <div class="pt-3 text-right">
+        <button onclick="closeModal('disclosureModal')" class="bg-sentia-navy text-white px-4 py-1.5 rounded text-xs font-bold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: MYCLASSBOARD -->
+  <div id="portalModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-xs text-slate-800 space-y-3">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-sm text-sentia-navy">MyClassboard Parent Portal</h3>
+        <button onclick="closeModal('portalModal')" class="text-slate-400 hover:text-black">✕</button>
+      </div>
+      <p class="text-slate-600">Please enter your student admission ID and portal password to check circulars and attendance.</p>
+      <input type="text" placeholder="Admission No. / User ID" class="w-full p-2 border rounded">
+      <input type="password" placeholder="Password" class="w-full p-2 border rounded">
+      <button onclick="alert('Redirecting to MyClassboard gateway.')" class="w-full bg-sentia-navy text-white py-2 rounded font-bold">Sign In</button>
+    </div>
+  </div>
+
+  <!-- MODAL: TRANSPORT ROUTES -->
+  <div id="transportModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 text-xs text-slate-800 space-y-2">
+      <div class="flex justify-between items-center border-b pb-2 mb-2">
+        <h3 class="font-bold text-sm text-sentia-navy">Transport Route List 2026</h3>
+        <button onclick="closeModal('transportModal')" class="text-slate-400 hover:text-black">✕</button>
+      </div>
+      <p>• <strong>Route 1:</strong> Miyapur, Allwyn X Roads, Mayuri Nagar</p>
+      <p>• <strong>Route 2:</strong> Kukatpally, JNTU, KPHB Colony</p>
+      <p>• <strong>Route 3:</strong> Nizampet Village & Bachupally</p>
+      <p>• <strong>Route 4:</strong> Chandanagar, Gangaram & BHEL</p>
+      <div class="pt-3 text-right">
+        <button onclick="closeModal('transportModal')" class="bg-sentia-navy text-white px-4 py-1.5 rounded text-xs font-bold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT HANDLERS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+
+    function toggleMobileNav() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    function showTab(key) {
+      ['early', 'primary', 'middle', 'senior'].forEach(k => {
+        document.getElementById(`content-${k}`).classList.toggle('hidden', k !== key);
+        const btn = document.getElementById(`btn-${k}`);
+        if (k === key) {
+          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-sentia-navy text-white";
+        } else {
+          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200";
+        }
+      });
+    }
+
+    function filterNotices() {
+      const q = document.getElementById('noticeSearch').value.toLowerCase();
+      document.querySelectorAll('.notice-item').forEach(item => {
+        const text = item.querySelector('.notice-title').textContent.toLowerCase();
+        item.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    function checkAge() {
+      const dob = document.getElementById('dobInput').value;
+      const out = document.getElementById('ageOutput');
+      if (!dob) { alert('Please select a date.'); return; }
+      const diffYears = (new Date('2026-05-31') - new Date(dob)) / (1000 * 60 * 60 * 24 * 365.25);
+      out.classList.remove('hidden');
+      if (diffYears >= 3 && diffYears < 4) out.textContent = "Eligible for: Balvatika / Nursery (Age 3+)";
+      else if (diffYears >= 4 && diffYears < 5) out.textContent = "Eligible for: LKG / PP1 (Age 4+)";
+      else if (diffYears >= 5 && diffYears < 6) out.textContent = "Eligible for: UKG / PP2 (Age 5+)";
+      else if (diffYears >= 6) out.textContent = `Eligible for: Class ${Math.min(12, Math.floor(diffYears - 5))} or above`;
+      else out.textContent = "Age is below Balvatika threshold.";
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('enquiryForm').classList.add('hidden');
+      document.getElementById('token').textContent = 'SGS-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('formSuccess').classList.remove('hidden');
+    }
+
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+  </script>
+</body>
+</html>
